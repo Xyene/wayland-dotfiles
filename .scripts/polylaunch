@@ -1,3 +1,4 @@
 #!/bin/bash
 pkill polybar
-polybar -r i3bar
+polybar -r i3bar &
+polybar -r bottom

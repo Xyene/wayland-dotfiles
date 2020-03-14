@@ -1,0 +1,84 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: DejaVu Sans Mono, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/home/xyene/.wallpapers/sunset-pond-bar.png");
+    background-size: 100% 100%;*/
+}
+
+#workspaces button {
+    padding: 0 9px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inherit;
+    border-bottom: 3px solid #ffffff;
+}
+
+#workspaces button.focused {
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom: 3px solid #268bd2; /*white;*/
+    border-bottom: 3px solid #ff7d33;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 2px solid white;
+}
+
+#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #custom-spotify, #tray, #mode, #idle_inhibitor {
+    padding: 0 5px;
+    margin: 0 3px;
+    margin-top: 3px;
+    /* border-left: 1px solid rgba(255, 255, 255, 0.15); */
+}
+
+#tray {
+  border-bottom: 3px solid transparent;
+}
+
+#pulseaudio {
+  border-bottom: 3px solid #cb4b16;
+}
+
+#clock {
+  border-bottom: 3px solid #6c71c4;
+}
+
+#cpu {
+  border-bottom: 3px solid #859900;
+}
+
+#memory {
+  border-bottom: 3px solid #268bd2;
+}
+
+#clock {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#pulseaudio {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+#pulseaudio.muted {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    margin-left: 8px;
+}
+
+#custom-spotify {
+    color: white;
+}
+

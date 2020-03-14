@@ -5,6 +5,7 @@ fi
 stty werase '^H'
 xset b off
 
+alias make='make -j24'
 export FZF_DEFAULT_OPTS=--no-height
 . ~/.config/key-bindings.bash
 
@@ -29,10 +30,8 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 alias d=ranger
-alias neofetch="neofetch --w3m --size 50% --distro_shorthand on --source ~/.config/i3/background.png"
+alias neofetch="neofetch --w3m --size 50% --distro_shorthand on --speed_shorthand on --source ~/.wallpapers/sunset-pond.png --disable theme --disable icons --disable packages"
 alias termite="termite -d ~"
-
-export PULSE_SERVER=127.0.0.1
 
 # If not running interactively, don't do anything
 case $- in
@@ -69,7 +68,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    screen|xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned

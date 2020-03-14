@@ -8,6 +8,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au BufEnter * setlocal cursorline
 au BufLeave * setlocal nocursorline
 
+autocmd! BufNewFile,BufRead *.vs,*.fs,*.glsl,*.tcs,*.tes set ft=glsl
+
 let g:airline_right_sep=''
 let g:airline_left_sep=''
 
@@ -77,7 +79,7 @@ Plugin 'rhysd/vim-clang-format'
 "Plugin 'kshenoy/vim-signature'
 Plugin 'ntpeters/vim-better-whitespace'
 " Plugin 'airblade/vim-gitgutter'
-
+Plugin 'tikhomirov/vim-glsl'
 Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'jistr/vim-nerdtree-tabs'
 
@@ -99,3 +101,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'zenburn'
 
 colorscheme badwolf
+
+hi Normal guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE
+hi NonText ctermbg=NONE guibg=NONE
+

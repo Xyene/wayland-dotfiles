@@ -1,12 +1,15 @@
-Xft.antialias: true
-Xft.hinting:   true
-Xft.rgba:      rgb
-Xft.hintstyle: hintfull
-Xft.dpi:        234
+Xft.dpi:        117
 
-rofi.terminal:				uxterm
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+rofi.terminal:				kitty
 rofi.ssh-client:			/usr/bin/ssh
-rofi.ssh-command:			uxterm -e "{ssh-client} {host}"
+rofi.ssh-command:			kitty "{ssh-client} {host}"
 
 rofi.width:                          50
 rofi.lines:                          15
@@ -33,14 +36,14 @@ rofi.color-urgent:                   argb:00000000, #f3843d, argb:00000000, #268
 rofi.color-active:                   argb:00000000, #268bd2, argb:00000000, #268bd2, #205171
 rofi.color-window:                   argb:b2000000, #268bd2, #268bd2
 
-rofi.bw:                             4
-rofi.padding:                        20
+rofi.bw:                             2
+rofi.padding:                        10
 rofi.lazy-filter-limit:              15000
-rofi.line-margin:                    8
+rofi.line-margin:                    4
 rofi.separator-style:                solid
 rofi.hide-scrollbar:                 true
 rofi.fullscreen:                     false
-rofi.dpi:                            234
+rofi.dpi:                            117
 
 rofi.kb-row-left:                    Control+Page_Up,Control+Left
 rofi.kb-row-right:                   Control+Page_Down,Control+Right
@@ -90,8 +93,21 @@ rofi.kb-row-down:                    Down,Control+n,Control+Down
 URxvt.background: #1a1b1c
 URxvt*font: xft:DejaVu Sans Mono:size=8
 URxvt.scrollBar: false
-URxvt.internalBorder: 20
+URxvt.internalBorder: 10
 URxvt.termName: xterm-256color
+
+URxvt.transaprent: true
+URxvt.shading: 20
+
+urxvt*transparent: true
+
+urxvt*shading: 10
+
+urxvt*tintColor: #000000
+
+urxvt*blurRadius: 5
+
+
 
 xterm*faceName: xft:DejaVu Sans Mono
 
@@ -107,7 +123,7 @@ xterm*faceSize6: 12
 xterm*termName: xterm-256color
 xterm*ScrollBar: false
 xterm*rightScrollBar: false
-xterm*internalBorder: 20
+xterm*internalBorder: 10
 
 xterm*allowTermcapOps: true
 xterm*allowTitleOps: true
