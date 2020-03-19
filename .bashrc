@@ -30,7 +30,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 alias d=ranger
-alias neofetch="neofetch --w3m --size 50% --distro_shorthand on --speed_shorthand on --source ~/.wallpapers/sunset-pond.png --disable theme --disable icons --disable packages"
+alias neofetch="neofetch --kitty --size 50% --distro_shorthand on --speed_shorthand on --source ~/.wallpapers/sunset-pond.png --disable theme --disable icons --disable packages"
 alias termite="termite -d ~"
 
 # If not running interactively, don't do anything
