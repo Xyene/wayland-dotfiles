@@ -11,6 +11,7 @@ for_window [class="Spotify"] move window to workspace 10
 for_window [app_id="nautilus"] floating enable
 for_window [app_id="file-roller"] floating enable
 
+for_window [class="keepassxc"] floating enable
 for_window [class="libigl viewer"] floating enable
 
 client.focused  #ff965a   #ff965a   #ffffff   #ff965a  #ff965a
@@ -28,8 +29,7 @@ set $right semicolon
 
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id uxterm
-#kitty
+bindsym $mod+Return exec --no-startup-id kitty --single-instance
 #uxterm -title ""
 #bindsym $mod+Return exec --no-startup-id termite -d ~
 
@@ -125,6 +125,7 @@ bindsym $mod+Shift+i reload
 for_window [title="feh.*screenshot"] floating enable
 for_window [title="feh.*screenshot"] fullscreen on
 bindsym $mod+Shift+2 exec ~/.scripts/screenshot.sh
+bindsym $mod+Shift+3 exec ~/.scripts/screenshot-fullscreen.sh
 bindsym $mod+Shift+l exec ~/.scripts/blur-lock-multimonitor.sh
 
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
