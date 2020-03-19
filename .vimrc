@@ -8,6 +8,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au BufEnter * setlocal cursorline
 au BufLeave * setlocal nocursorline
 
+set t_RV=
+
 autocmd! BufNewFile,BufRead *.vs,*.fs,*.glsl,*.tcs,*.tes set ft=glsl
 
 let g:airline_right_sep=''
@@ -73,7 +75,8 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'romainl/flattened'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'rhysd/vim-clang-format'
-" Plugin 'Chiel92/vim-autoformat'
+
+Plugin 'Chiel92/vim-autoformat'
 
 " Plugin 'easymotion/vim-easymotion'
 "Plugin 'kshenoy/vim-signature'
