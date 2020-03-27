@@ -44,7 +44,7 @@ imap <C-BS> <C-W>
 nmap <C-S-L> :StripWhitespace<CR>:Autoformat<CR>
 
 "set completeopt-=preview
-set colorcolumn=80
+set colorcolumn=80,120
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -78,13 +78,36 @@ Plugin 'rhysd/vim-clang-format'
 
 Plugin 'Chiel92/vim-autoformat'
 
-" Plugin 'easymotion/vim-easymotion'
 "Plugin 'kshenoy/vim-signature'
 Plugin 'ntpeters/vim-better-whitespace'
 " Plugin 'airblade/vim-gitgutter'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'jistr/vim-nerdtree-tabs'
+
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+
+Plugin 'easymotion/vim-easymotion'
+
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map L <Plug>(easymotion-bd-jk)
+nmap L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  f <Plug>(easymotion-bd-w)
+nmap f <Plug>(easymotion-overwin-w)
+
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+let g:EasyMotion_smartcase = 1
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -104,6 +127,18 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'zenburn'
 
 colorscheme badwolf
+
+hi clear EasyMotionTarget
+hi clear EasyMotionShade
+
+hi EasyMotionTarget ctermbg=none ctermfg=red
+"hi EasyMotionShade  ctermbg=none ctermfg=none gui
+
+hi EasyMotionTarget2First ctermbg=none ctermfg=red
+hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
+
+hi EasyMotionMoveHL ctermbg=green ctermfg=black
+hi EasyMotionIncSearch ctermbg=green ctermfg=black
 
 hi Normal guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE
