@@ -1,6 +1,4 @@
 #!/bin/bash
-export MOZ_ENABLE_WAYLAND=1
-
 if ! pgrep firefox; then
   firefox &
 else
