@@ -16,7 +16,7 @@ elif [[ $class == "stopped" ]]; then
 fi
 
 
-echo -n "<span foreground='#1db954' rise='-1000'>$icon</span>$text"
+echo -n "<span font_desc='Font Awesome 5 Pro' foreground='#1db954' rise='-1000'>$icon</span>$text"
 
 #echo -e "{\"text\":\""$text"\", \"class\":\""$class"\"}"
 

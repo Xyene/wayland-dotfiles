@@ -13,8 +13,8 @@
         "format": "{icon}",
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
+            "2": "2", //"",
+            "3": "3", //"",
             "4": "4",
             "5": "5",
             "6": "6",
@@ -73,14 +73,14 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%C%y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "  {:%I:%M %p}"
+        "format": "<span font_desc='Font Awesome 5 Pro'></span> {:%I:%M %p}"
     },
     "cpu": {
-        "format": "   {usage}%",
+        "format": "<span font_desc='Font Awesome 5 Pro'></span> {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "  {}%"
+        "format": "<span font_desc='Font Awesome 5 Pro'></span> {}%"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -105,8 +105,8 @@
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-muted": " ",
+        "format": "<span font_desc='Font Awesome 5 Pro'>{icon}</span> {volume}%",
+        "format-muted": "<span font_desc='Font Awesome 5 Pro'> </span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
