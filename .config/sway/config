@@ -2,17 +2,47 @@ set $mod Mod1
 
 font pango:DejaVu Sans Mono 9
 
-output * bg ~/.wallpapers/sunset-pond.png fill
+output DP-1 bg ~/.wallpapers/sunset-whale.png fill
+output DP-2 bg ~/.wallpapers/hourglass.png fill
 
-output HDMI-A-1 pos 0 0 res 2560x1440
-output HDMI-A-2 pos 2560 540 res 1600x900
+#output DP-1 pos 0 0 res 2560x1440
+#output DP-2 pos 2560 0 res 2560x1440 transform 270
+
+output DP-1 pos 1440 530 res 2560x1440
+output DP-2 pos 0 0 res 2560x1440 transform 270
+
+#output DP-2 scale 1
+
+#output DP-2 adaptive_sync on
+#output DP-2 max_render_time 1
+
+input 9580:110:HUION_420_Pen {
+  map_to_output DP-1
+  map_from_region 0.22x0.22 0.78x0.78
+  #map_from_region 0.25x0.25 0.75x0.75
+  #map_from_region 0.20x0.20 0.8x0.8
+  left_handed enabled
+#  calibration_matrix -1 0 1 0 -1 1
+}
+
+seat * keyboard_grouping none
+
+#seat seat_wacom attach "9580:110:HUION_420_Pen"
+#seat seat_wacom hide_cursor 1000
+
+#seat * hide_cursor 1000
 
 for_window [class="Spotify"] move window to workspace 10
 for_window [app_id="nautilus"] floating enable
+
 for_window [app_id="file-roller"] floating enable
 
 for_window [class="keepassxc"] floating enable
 for_window [class="libigl viewer"] floating enable
+for_window [app_id="sadness"] floating enable
+
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
+for_window [floating] border csd
 
 client.focused  #ff965a   #ff965a   #ffffff   #ff965a  #ff965a
 #client.focused	#268bd2   #268bd2   #ffffff   #268bd2  #268bd2
@@ -29,13 +59,13 @@ set $right semicolon
 
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id kitty --single-instance
+bindsym $mod+Shift+Return exec --no-startup-id kitty
 #uxterm -title ""
 #bindsym $mod+Return exec --no-startup-id termite -d ~
 
 bindsym $mod+Shift+t exec --no-startup-id ~/.scripts/swaywm-open-firefox-tab.sh
 
-bindsym Ctrl+q exec true
+#bindsym Ctrl+q exec true
 bindsym $mod+Shift+q kill
 
 # change focus
@@ -128,9 +158,11 @@ bindsym $mod+Shift+2 exec ~/.scripts/screenshot.sh
 bindsym $mod+Shift+3 exec ~/.scripts/screenshot-fullscreen.sh
 bindsym $mod+Shift+l exec ~/.scripts/blur-lock-multimonitor.sh
 
-bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute  exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+Shift+F exec ~/.scripts/sadness.sh
+
+bindsym Break exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Ctrl+Scroll_Lock exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Ctrl+Print  exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext  exec --no-startup-id playerctl next
 bindsym XF86AudioPrev   exec --no-startup-id playerctl previous
@@ -138,8 +170,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id sudo light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo light -U 10
 
 exec swayidle -w \
-         timeout 300 '~/.scripts/blur-lock-multimonitor.sh' \
-         timeout 600 'swaymsg "output * dpms off"' \
+         timeout 1200 '~/.scripts/blur-lock-multimonitor.sh' \
+         timeout 1200 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep '~/.scripts/blur-lock-multimonitor.sh'
 
@@ -174,7 +206,24 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec mako
+mode "passthrough" {
+	bindsym $mod+p mode default
+}
+
+bindsym $mod+p mode passthrough
+
+
+for_window [app_id="mpv"] floating enable, resize set height 720 px, move position center, border none, sticky enable
+
+mode "spotify" {
+		bindsym $mod+m  mode default
+		bindsym Escape  mode default
+		bindsym Right 	exec playerctl next
+		bindsym Left 		exec playerctl previous
+		bindsym Space		exec playerctl play-pause
+}
+
+bindsym $mod+m mode "spotify"
 
 #exec --no-startup-id start-pulseaudio-x11
 #exec_always --no-startup-id killall cava; exec /code/i3bgwin/i3bgwin urxvt -depth 32 -bg '[00]black' --color6 '[20]cyan' +sb -embed {windowid} -e cava
@@ -185,3 +234,7 @@ exec_always --no-startup-id killall waybar; exec waybar
 exec_always --no-startup-id pkill redshift; exec redshift-gtk
 #exec --no-startup-id exec ~/.scripts/wbackground
 exec spotify
+
+exec ~/.scripts/cava-bg
+
+#exec wl-paste -t text --watch ~/go/bin/clipman store
